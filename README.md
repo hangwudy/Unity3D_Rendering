@@ -4,4 +4,4 @@ This is a project for rendering images in Unity3D environment. With these script
 
 Thanks for your interest.
 
-Hang Wu
+Wu
