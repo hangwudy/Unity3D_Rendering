@@ -20,7 +20,8 @@ public class CameraOrbit : MonoBehaviour {
             dir *= -1;
 
         // RotateAround( Vector3 point, Vector3 axis, and float angle)
-        transform.RotateAround(target.position, Vector3.up, horizMove * dir);
+        transform.RotateAround(target.position,
+            Vector3.up, horizMove * dir);
     }
 
     public void MoveVertical(bool up)
@@ -29,6 +30,8 @@ public class CameraOrbit : MonoBehaviour {
         if (!up)
             dir *= -1;
 
-        transform.RotateAround(target.position, transform.TransformDirection(Vector3.right), vertMove * dir);
+        transform.RotateAround(target.position,
+            transform.TransformDirection(Vector3.right),
+            vertMove * dir);
     }
 }

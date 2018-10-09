@@ -33,13 +33,20 @@ public class ScreenshotHandler : MonoBehaviour {
             var date = DateTime.Now;
 
             // name format: yyyymmddhhmmssmsmsms
-            System.IO.File.WriteAllBytes(Application.dataPath + "/Screenshots/car_door_"+
-                date.Year + date.Month + date.Day + date.Hour + date.Minute +
-                date.Second + date.Millisecond + ".png", byteArray);
+            //System.IO.File.WriteAllBytes(Application.dataPath + "/Screenshots/car_door_" +
+            //    date.Year + date.Month + date.Day + date.Hour + date.Minute +
+            //    date.Second + date.Millisecond + ".png", byteArray);
+
+
             // Debug.Log(myCamera.transform.rotation);
-            Debug.Log(myCamera.transform.eulerAngles.y);
+            // for exacter representation, times 10 (myCamera.transform.eulerAngles.x * 10)
+            int x_axis_angle = Convert.ToInt32(myCamera.transform.eulerAngles.x);
             int y_axis_angle = Convert.ToInt32(myCamera.transform.eulerAngles.y);
-            Debug.Log(y_axis_angle);
+            
+            System.IO.File.WriteAllBytes(Application.dataPath + "/Screenshots/car_door_" +
+                x_axis_angle + "_" + y_axis_angle + ".png", byteArray);
+            // Debug.Log(myCamera.transform.eulerAngles.y);
+            // Debug.Log(y_axis_angle);
 
             RenderTexture.ReleaseTemporary(renderTexture);
             myCamera.targetTexture = null;
@@ -48,7 +55,7 @@ public class ScreenshotHandler : MonoBehaviour {
 
     private void TakeScreenshot(int width, int height)
     {
-        myCamera.targetTexture = RenderTexture.GetTemporary(width, height, 3);
+        myCamera.targetTexture = RenderTexture.GetTemporary(width, height, 16);
         takeScreenshotOnNextFrame = true;
     }
 

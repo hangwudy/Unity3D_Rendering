@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour {
             // rotate the camera and take a screenshot
             cam.MoveHorizontal(true);
             ScreenshotHandler.TakeScreenshot_Static(1000, 1000);
+            Debug.Log(cam.transform.eulerAngles);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKey(KeyCode.RightArrow))
         {
@@ -31,11 +32,13 @@ public class InputManager : MonoBehaviour {
         {
             cam.MoveVertical(true);
             // ScreenshotHandler.TakeScreenshot_Static(1000, 1000);
+            Debug.Log(cam.transform.eulerAngles.x);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             cam.MoveVertical(false);
             // ScreenshotHandler.TakeScreenshot_Static(1000, 1000);
+            Debug.Log(cam.transform.eulerAngles.x);
         }
     }
 }
