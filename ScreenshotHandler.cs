@@ -37,6 +37,9 @@ public class ScreenshotHandler : MonoBehaviour {
                 date.Year + date.Month + date.Day + date.Hour + date.Minute +
                 date.Second + date.Millisecond + ".png", byteArray);
             // Debug.Log(myCamera.transform.rotation);
+            Debug.Log(myCamera.transform.eulerAngles.y);
+            int y_axis_angle = Convert.ToInt32(myCamera.transform.eulerAngles.y);
+            Debug.Log(y_axis_angle);
 
             RenderTexture.ReleaseTemporary(renderTexture);
             myCamera.targetTexture = null;
